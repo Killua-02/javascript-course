@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+  </head>
+  <body>
+    <button onclick="
+      console.log(`quantity in cart: ${cartQuantity}`);
+      ">show quantity</button>
+    <button onclick="
+      cartQuantity+=1;
+      console.log('added to the cart');
+      ">add to cart</button>
+    <button onclick="
+      cartQuantity+=2;
+      ">+2</button>
+    <button onclick="
+      cartQuantity+=3;
+      ">+3</button>
+    <button onclick="
+      cartQuantity+=4;
+      ">+4</button>
+    <button onclick="
+      cartQuantity+=5;
+      ">+5</button>
+    <button onclick="
+      cartQuantity=0;
+      console.log('cart is reset');
+      ">reset cart</button>
+    <button onclick="
+      cartQuantity--;
+      ">remove from cart</button>
+    <button onclick="
+      cartQuantity-=2;
+      ">-2</button>
+    <button onclick="
+      cartQuantity-=3;
+      ">-3</button>
+
+    <script>
+      let cartQuantity=0;
+      let name='rohan';
+      console.log(`my name is: ${name}`);
+      let cost=5+3+9;
+      console.log(`cost of food: $${cost}`);
+      let tax=cost/10;
+      console.log(`tax(10%): $${tax}`);
+      let totalCost=cost+tax;
+      console.log(`total cost: $${totalCost}`);
+    </script>
+  </body>
+</html>
