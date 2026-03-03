@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>functions</title>
+  </head>
+  <body>
+    <script>
+      function greet(name){
+        if(!name){ 
+          console.log('hi there');
+        }else
+        console.log(`hello ${name}`);
+        
+      }
+      greet();
+      greet();
+      greet();
+      greet('rohan');
+      greet('vikas');
+      greet('vishal');
+
+      function convertToFahrenheit(c){
+        let f=(c*9/5)+32;
+        console.log(f);
+      }
+      convertToFahrenheit(25);
+
+      function convertToCelsius(f){
+        let c=(f-32)*5/9;
+        console.log(c);
+      }
+      convertToCelsius(86);
+
+      function convertTemperature(degree, unit){
+        if(unit=='c'){
+          return convertToFahrenheit(degree);
+        }else if(unit=='f'){
+          return convertToCelsius(degree);
+        }
+      }
+      convertTemperature(25,'c');
+      convertTemperature(86,'f');
+
+
+      function convertLength(length,from, to){
+        if(from===to){
+          return `${length} ${from}`;
+        }else if(from=='miles'){
+          return `${length*1.6} ${from}`;
+        }else if(from=='km'){
+          return `${length/1.6} ${from}`;
+        }
+      }
+
+      console.log(convertLength(50,'miles','km'));
+      console.log(convertLength(32,'km','miles'));
+      console.log(convertLength(32,'km','km'));
+      console.log(convertLength(50,'miles','miles'));
+
+
+
+
+
+    </script>
+  </body>
+</html>
