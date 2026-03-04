@@ -4,13 +4,171 @@
     <title>functions</title>
   </head>
   <body>
+    <p>
+      <button onclick="
+        calculation('1');
+      ">1</button>
+
+      <button onclick="
+        calculation('2');
+      ">2</button>
+
+      <button onclick="
+        calculation('3');
+      ">3</button>
+
+      <button onclick="
+        calculation('+');
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        calculation('4');
+      ">4</button>
+
+      <button onclick="
+        calculation('5');
+      ">5</button>
+
+      <button onclick="
+        calculation('6');
+      ">6</button>
+
+      <button onclick="
+       calculation('-');
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        calculation('7');
+      ">7</button>
+
+      <button onclick="
+        calculation('8');
+      ">8</button>
+
+      <button onclick="
+        calculation('9');
+      ">9</button>
+
+      <button onclick="
+        calculation('*');
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+        calculation('0');
+      ">0</button>
+
+      <button onclick="
+        calculation('.');
+      ">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculate = eval(calculate);
+        console.log(calculate);
+      ">=</button>
+
+      <button onclick="
+        calculation('/');
+      ">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        calculate = '';
+        console.log('Cleared.');
+      ">Clear</button>
+    </p>
+
+
+
+
+
+    <button onclick="
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Show Quantity</button>
+
+    <button onclick="
+      updateCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+      updateCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+      updateCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+      updateCartQuantity(4);
+    ">+4</button>
+
+    <button onclick="
+      updateCartQuantity(5);
+    ">+5</button>
+
+    <!-- vvv This code was changed. vvv -->
+    <button onclick="
+      updateCartQuantity(-1);
+    ">Remove from cart</button>
+
+    <button onclick="
+      updateCartQuantity(-2);
+    ">-2</button>
+
+    <button onclick="
+      updateCartQuantity(-3);
+    ">-3</button>
+    <!-- ^^^ This code was changed. ^^^ -->
+
+    <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+      console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+
+
     <script>
+      let cartQuantity = 0;
+      function updateCartQuantity(value){
+        if (cartQuantity + value > 10) {
+        alert('The cart is full');
+        return;
+        }
+
+        if (cartQuantity + value < 0) {
+        alert('Not enough items in the cart');
+        }
+
+        cartQuantity += value;
+        console.log(`Cart quantity: ${cartQuantity}`);
+      }
+
+
+
+
+
+
+      let calculate='';
+      function calculation(value){
+        calculate += value;
+        console.log(calculate);
+      }
+
       function greet(name){
         if(!name){ 
           console.log('hi there');
         }else
         console.log(`hello ${name}`);
-        
       }
       greet();
       greet();
@@ -41,26 +199,37 @@
       convertTemperature(25,'c');
       convertTemperature(86,'f');
 
-
       function convertLength(length,from, to){
-        if(from===to){
+        if(from!=='km' && from!=='miles' && from!=='feet'){
+        return `invalid unit: ${from}`;
+        }else if(to!=='km' && to!=='miles' && to!=='feet'){
+          return `inavlid unit: ${to}`;
+        }
+
+        if(from=='miles' && to=='km'){
+          return `${length*1.6} ${to}`;
+        }else if(from=='miles' && to=='feet'){
+          return `${length*5280} ${to}`
+        }else if(from=='km' && to=='miles'){
+          return `${length/1.6} ${to}`;
+        }else if(from=='km' && to=='feet'){
+          return `${length*3281} ${to}`;
+        }else if(from=='feet' && to=='miles'){
+          return `${length/5280} ${from}`;
+        }else if(from=='feet' && to=='km'){
+          return `${length/3281} ${from}`;
+        }else if(from===to){
           return `${length} ${from}`;
-        }else if(from=='miles'){
-          return `${length*1.6} ${from}`;
-        }else if(from=='km'){
-          return `${length/1.6} ${from}`;
         }
       }
-
       console.log(convertLength(50,'miles','km'));
       console.log(convertLength(32,'km','miles'));
       console.log(convertLength(32,'km','km'));
       console.log(convertLength(50,'miles','miles'));
-
-
-
-
-
+      console.log(convertLength(5,'miles','km'));
+      console.log(convertLength(5,'miles','feet'));
+      console.log(convertLength(5,'km','feet'));
+      console.log(convertLength(5,'lbs','lbs'));
     </script>
   </body>
 </html>
