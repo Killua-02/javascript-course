@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>css with state change</title>
+    <style>
+      .button{
+        color:black;
+        background-color:white;
+        padding:10px;
+        font-size:20px;
+        border-radius:10px;
+        font-family:arial;
+      }
+      .is-toggled{
+        background-color:black;
+        color:white;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="button js-gaming" onclick="
+      let buttonElement=document.querySelector('.js-gaming');
+      if(buttonElement.classList.contains('is-toggled')){
+        buttonElement.classList.remove('is-toggled');
+      }else{
+        buttonElement.classList.add('is-toggled');
+      }
+    ">Gaming</button>
+    <button class="button js-music" onclick="
+      buttonElement=document.querySelector('.js-music');
+      if(buttonElement.classList.contains('is-toggled')){
+        buttonElement.classList.remove('is-toggled');
+      }else{
+        buttonElement.classList.add('is-toggled');
+      }
+    ">Music</button>
+    <button class="button js-tech" onclick="
+      buttonElement=document.querySelector('.js-tech');
+      if(buttonElement.classList.contains('is-toggled')){
+        buttonElement.classList.remove('is-toggled');
+      }else{
+        buttonElement.classList.add('is-toggled');
+      }
+    ">Tech</button>
+  </body>
+</html>

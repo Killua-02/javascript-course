@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dom</title>
+  </head>
+  <body>
+    <button class="js-btn">9a</button>
+    <button class="js-done">9b</button>
+    <p></p>
+
+    <button onclick="
+      document.querySelector('.choice')
+      .innerHTML='you chose:heads';
+    ">heads</button>
+    <button onclick="
+      document.querySelector('.choice')
+      .innerHTML='you chose:tails';
+    ">tails</button>
+    <p class="choice"></p>
+
+    <input placeholder='Name' class="js-input" onkeydown="
+      if(event.key==='Enter'){
+        message();
+      }
+    ">
+    <button onclick="
+       message();
+    ">submit</button>
+    <p class="js-message"></p>
+
+
+    <input placeholder='enter value' class="js-value" onkeydown="
+      keydown();
+      ">
+    <button onclick="
+      calculate();
+    ">calculate</button>
+    <p class="js-calculation-message"></p>
+
+
+    <input placeholder="Type Something" class='js-live-input' oninput="
+      const liveElement=document.querySelector('.js-live-input').value;
+      document.querySelector('.js-live-text').innerHTML=liveElement;
+    ">
+
+    <p class="js-live-text"></p>
+
+    <script>
+      console.log(document.querySelector('.js-btn'));
+      document.querySelector('.js-done').innerHTML='done';
+
+      function message(){
+        const inputElement=document.querySelector('.js-input').value;
+        document.querySelector('.js-message')
+        .innerHTML=`your name is ${inputElement}`;
+      }
+
+      function keydown(){
+        if(event.key==='Enter'){
+          calculate();
+        }
+      }
+
+      function calculate(){
+        let inputElement=Number(document.querySelector('.js-value').value)*100;
+        if(inputElement<4000){
+          inputElement+=1000;
+        }
+        document.querySelector('.js-calculation-message')
+        .innerHTML=`$${inputElement/100}`;
+      }
+      
+    </script>
+  </body>
+</html>
