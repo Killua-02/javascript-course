@@ -2,45 +2,33 @@
 <html>
   <head>
     <title>css with state change</title>
-    <style>
-      .button{
-        color:black;
-        background-color:white;
-        padding:10px;
-        font-size:20px;
-        border-radius:10px;
-        font-family:arial;
-      }
-      .is-toggled{
-        background-color:black;
-        color:white;
-      }
-    </style>
+    <link rel="stylesheet" href="test.css">
   </head>
   <body>
+
+    <button class="amazon-button">Add to Cart</button>
+    <br>
+
+    <button class="uber-request-button">Request now</button>
+    <button class="uber-schedule-button">Schedule for later</button>
+    <br>
+
     <button class="button js-gaming" onclick="
-      let buttonElement=document.querySelector('.js-gaming');
-      if(buttonElement.classList.contains('is-toggled')){
-        buttonElement.classList.remove('is-toggled');
-      }else{
-        buttonElement.classList.add('is-toggled');
-      }
+      toggle('.js-gaming');
     ">Gaming</button>
     <button class="button js-music" onclick="
-      buttonElement=document.querySelector('.js-music');
-      if(buttonElement.classList.contains('is-toggled')){
-        buttonElement.classList.remove('is-toggled');
-      }else{
-        buttonElement.classList.add('is-toggled');
-      }
+      toggle('.js-music');
     ">Music</button>
     <button class="button js-tech" onclick="
-      buttonElement=document.querySelector('.js-tech');
-      if(buttonElement.classList.contains('is-toggled')){
-        buttonElement.classList.remove('is-toggled');
-      }else{
-        buttonElement.classList.add('is-toggled');
-      }
+      toggle('.js-tech');
     ">Tech</button>
+    <br>
+
+    <input placeholder="enter the value" class="input">
+    <button class="calculate" onclick="calculate();">Calculate</button>
+    <p class="shipping-result"></p>
+
+
+    <script src="test.js"></script>
   </body>
 </html>
