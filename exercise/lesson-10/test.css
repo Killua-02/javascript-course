@@ -55,3 +55,6 @@
   color:white;
   cursor:pointer;
 }
+.error-message{
+  color:red;
+}
