@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>adavnce array</title>
+  </head>
+  <body>
+    <script>
+      //const array=['search','world','search'];
+      function findIndex(array,word){
+        let result=-1;
+        for(let i=0;i<array.length;i++){
+          if(array[i]===word){
+            result=i;
+            break;
+          }
+        }
+        return result;
+      }
+      console.log(findIndex(['green','red','blue','red'],'red'));
+      console.log(findIndex(['green','red','blue','red'],'yellow'));
+
+      function removeEgg(foods){
+        let result=[];
+        let flag=0;
+        foods.reverse();
+        for(let i=0;i<foods.length;i++){
+          if(foods[i]==='egg' && flag<2){
+            flag++;
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result.reverse();
+      }
+      console.log(removeEgg(['egg','apple','egg','egg','ham']));
+
+      const original=[1,2,3,4,5];
+      const reverse=original.slice().reverse();
+      console.log(original);
+      console.log(reverse);
+
+      let result=0;
+      for(let i=1;i<=20;i++){
+        result=i;
+        if(i%3===0){
+          result='fizz';
+        }
+        if(i%5===0){
+          result='buzz';
+        }
+        if(i%3===0 && i%5===0){
+          result='fizzbuzz';
+        }
+        console.log(result);
+      }
+
+      function unique(array){
+      result=[];
+        for(let i=0;i<array.length;i++){
+          if(findIndex(result,array[i])===-1){
+            result.push(array[i]);
+          }
+        }
+        return result;
+      }
+      console.log(unique(['green','red','blue','red']));
+
+      
+    </script>
+  </body>
+</html>
