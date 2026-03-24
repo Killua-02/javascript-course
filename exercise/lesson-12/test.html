@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>lesson 12</title>
+  </head>
+  <body>
+
+    <button onclick="updateButton();" class="js-button">Start</button>
+    <p></p>
+    
+    <button class="js-cart" onclick="updateCart();">Add To Cart</button>
+    <p class="js-cart-message"></p>
+
+    <button onclick="message++;">Add</button>
+    <button onclick="message--;">Remove</button>
+
+    <script>
+
+      let message=2;
+      
+      setInterval(function(){
+        if(message===0 || message<0){
+          document.title='lesson 12'
+        }else {
+          if(document.title==='lesson 12'){
+            document.title=`(${message}) New Message`;
+          }else{
+            document.title='lesson 12'
+          }
+        }
+      },1000);
+
+      let timeoutToken;
+      function updateCart(){
+        clearTimeout(timeoutToken);
+        const message=document.querySelector('.js-cart-message');
+        message.innerHTML='Added';
+        timeoutToken=setInterval(function(){
+          message.innerHTML='';
+        },2000)
+      }
+
+      function updateButton(){
+        const button=document.querySelector('.js-button');
+        button.innerHTML='Loading...';
+        setInterval(function(){
+            button.innerHTML='Finished !';
+        },1000)
+      }
+
+      const add = function (){
+        console.log(2+3);
+      }
+
+      add();
+      add();
+
+      function runTwice(fun){
+        fun();
+        fun();
+      }
+
+      runTwice(function(){
+        console.log(1);
+      });
+
+      runTwice(add);
+    </script>
+  </body>
+</html>
