@@ -1,4 +1,5 @@
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
+import isSatSun from "./import.js";
 
 console.log('hello world');
 
@@ -9,9 +10,8 @@ console.log(today.subtract(1,'month').format('MMMM D'));
 console.log(today.format('dddd'));
 
 
-function isWeekend(date){
-  const dayOfWeek=dayjs(date).day();
-  return dayOfWeek===0 || dayOfWeek===6;
-}
 
-console.log(isWeekend('2026-04-25'));
+
+let date=dayjs();
+console.log(isSatSun(date));
+console.log(isSatSun(date.subtract(1,'day')));
